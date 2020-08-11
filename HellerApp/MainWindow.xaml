@@ -1,0 +1,44 @@
+﻿<Window x:Class="HellerApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HellerApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.9*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" Background="Orange" Click="VerticalSplitter">
+            <Image  Source="/img/vertical-split.png"/>
+        </Button>
+        <Button Grid.Row="1"  Background="Orange">
+            <Image  Source="/img/vertical-split.png"/>
+        </Button>
+        <StackPanel Grid.Row="2"   VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="x" />
+                <TextBox x:Name="WidthSplitter" Width="50" />
+                <TextBlock Text="%"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="y" />
+                <TextBox x:Name="HeightSplitter" Width="50"  />
+                <TextBlock Text="%" />
+            </StackPanel>
+        </StackPanel>
+        <Button Grid.Column="0" Grid.Row="3" Background="White">
+            <Image  Source="/img/json-file.png" />
+        </Button>
+
+    </Grid>
+</Window>

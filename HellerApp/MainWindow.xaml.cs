@@ -20,22 +20,43 @@ namespace HellerApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        Layout MainLayout { get; set; }
+
+        JsonSerializeModel Model { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            MainLayout = new Layout(BasePanel, WidthSplitter, HeightSplitter);
+
         }   
 
 
-        public void VerticalSplitter() 
+        public void VerticalSplitter(object sender, RoutedEventArgs e)
         {
+            MainLayout.VerticalSplitter();
+        }
+
+
+        public void HorizontalSplitter(object sender, RoutedEventArgs e) 
+        {
+            MainLayout.HorizontalSplitter();        
+        }
+
+        public void ToJson(object sender, RoutedEventArgs e) 
+        {
+        
         
         }
 
 
 
-
-
-
+        public void GoBack(object senser, RoutedEventArgs e)
+        {
+            MainLayout.BackwardSplitter();
+            
+           
+        }
 
     }
 }

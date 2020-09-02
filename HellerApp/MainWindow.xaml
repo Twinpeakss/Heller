@@ -8,37 +8,57 @@
         Title="MainWindow" Height="450" Width="700">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.1*"/>
-            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="0.17*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.4*"/>
-            <RowDefinition Height="0.4*"/>
-            <RowDefinition Height="0.4*"/>
-            <RowDefinition Height="0.4*"/>
-        </Grid.RowDefinitions>
 
-        <Button Grid.Row="0" Background="Orange" Click="VerticalSplitter">
-            <Image  Source="/img/vertical-split.png"/>
-        </Button>
-        <Button Grid.Row="1"  Background="Orange">
-            <Image  Source="/img/vertical-split.png"/>
-        </Button>
-        <StackPanel Grid.Row="2"   VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="x" />
-                <TextBox x:Name="WidthSplitter" Width="50" />
-                <TextBlock Text="%"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="y" />
-                <TextBox x:Name="HeightSplitter" Width="50"  />
-                <TextBlock Text="%" />
-            </StackPanel>
-        </StackPanel>
-        <Button Grid.Column="0" Grid.Row="3" Background="White">
-            <Image  Source="/img/json-file.png" />
-        </Button>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            
+            <Button Grid.Row="0" Background="Orange" Click="VerticalSplitter">
+                <Image  Source="/img/vertical-split.png"/>
+            </Button>
 
+            <Button Grid.Row="1"  Background="Orange" Click="HorizontalSplitter">
+                <Image  Source="/img/horizontal-split.png"/>
+            </Button>
+            
+            <StackPanel Grid.Row="2"   VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Width" />
+                    <TextBox x:Name="WidthSplitter" Width="50"  FontSize="10" Margin="4,0,0,0"/>
+                    <TextBlock Text="%"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Height" />
+                    <TextBox x:Name="HeightSplitter" Width="50" FontSize="10" />
+                    <TextBlock Text="%" />
+                </StackPanel>
+            </StackPanel>
+
+            <Button Grid.Column="0" Grid.Row="3" Background="White" Click="ToJson">
+                <Image  Source="/img/json-file.png" />
+            </Button>
+            
+            <Button Grid.Row="4"  HorizontalAlignment="Stretch" Background="White" Click="GoBack">
+                <Image Source="/img/go-back.png"/>
+            </Button>
+            
+        </Grid>
+
+        <Grid Grid.Column="1" x:Name="BaseGrid"  ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <local:LayoutPanel Background="White" Grid.Column="0" x:Name="BasePanel"  Height="auto" Width="auto">
+            </local:LayoutPanel>
+        </Grid>
+              
     </Grid>
 </Window>
